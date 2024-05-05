@@ -1,0 +1,246 @@
+/* Define the color palette */
+$dark-blue: #384256; // Main background color
+$medium-blue: #2a3447;
+$light-blue: #222b3c;
+$very-light-blue: #CAD3E1;
+$white: #FFFFFF;
+$text-color: $very-light-blue; // A light color for text to contrast with the dark background
+$button-blue: #4C5B78; // Button color that stands out but still fits the theme
+
+/* Global styles */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $dark-blue;
+  color: $text-color;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add-course-form {
+  padding: 2rem;
+  background-color: $medium-blue;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+  color: $white;
+  display: flex;
+  justify-content: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: 600;
+      }
+
+      input[type="text"], input[type="number"] {
+        padding: 0.75rem;
+        border: 1px solid $light-blue;
+        border-radius: 4px;
+        background-color: $light-blue;
+        outline: none;
+
+        &::placeholder {
+          color: $very-light-blue;
+        }
+
+        &:focus {
+          border-color: $very-light-blue;
+        }
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+
+      button {
+        padding: 0.75rem 1rem;
+        background-color: $button-blue;
+        color: $white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+
+        &:hover {
+          background-color: $light-blue;
+          transform: translateY(-1px);
+        }
+
+        &:active {
+          transform: translateY(1px);
+        }
+      }
+    }
+  }
+}
+
+/* Courses page styles */
+.courses-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: $dark-blue;
+
+  .courses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .courses-title {
+      color: $white;
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 0;
+      
+    }
+  }
+  
+  .courses-toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    .search-container {
+        position: relative; // Allows us to position the button inside the input container
+        width: 100%; // Set the width of the search container
+        max-width: 300px; // Limit the width to 300px
+        margin-right: 1rem; // Add some space between the search container and the add button
+
+        .search-input, .search-btn {
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
+        }
+
+        .search-input, .search-btn, .add-btn {
+            border-radius: 20px; // Rounded corners for the buttons
+            transition: background-color 0.3s;
+            }
+        
+
+      
+
+      .search-input {
+        padding: 0.75rem 1rem;
+        border: 0px solid $medium-blue;
+        border-radius: 30px; // Rounded corners for the input
+        width: 100%; // Reduce width to make room for button
+        background-color: $medium-blue;
+        color: $white;
+        outline: none; // Removes the default focus outline
+        transition: border-color 0.3s;
+
+        &::placeholder {
+          color: $very-light-blue;
+        }
+
+        &:focus {
+          border-color: $light-blue;
+        }
+      }
+
+      .padding-extra{
+        padding:100px;
+      }
+      .search-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 0.75rem 1rem;
+        background-color: $button-blue;
+        color: $white;
+        border: none;
+        border-radius: 0 20px 20px 0;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: $light-blue;
+        }
+      }
+    }
+
+    .add-btn {
+        padding: 1rem 1rem;
+        background-color: $button-blue;
+        color: $white;
+        border: 1px solid $button-blue;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        
+    &:hover {
+        background-color: $light-blue;
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+
+  .courses-table-container {
+    flex-grow: 1;
+    overflow: auto; // Adds a scrollbar when content overflows
+    background-color: $dark-blue;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+
+    .courses-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      thead {
+        tr {
+          background-color: $medium-blue;
+          color: $white;
+          text-align: left;
+        }
+      }
+
+      th, td {
+        padding: 1rem;
+        border-bottom: 1px solid $light-blue;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+
+      tbody {
+        tr {
+          &:nth-child(even) {
+            background-color: $medium-blue;
+          }
+
+          &:hover {
+            background-color: $light-blue;
+            color: $white;
+          }
+
+          td {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+  
+}

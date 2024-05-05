@@ -1,0 +1,125 @@
+/* Define the color palette */
+$dark-blue: #384256;
+$medium-blue: #2a3447;
+$light-blue: #222b3c;
+$very-light-blue: #CAD3E1;
+$white: #FFFFFF;
+$text-color: $very-light-blue;
+$button-blue: #4C5B78;
+
+/* Global styles */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $dark-blue;
+  color: $text-color;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* Courses page and DemoCourse page shared styles */
+.courses-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $dark-blue;
+
+  .courses-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+
+    .add-btn{
+      margin-top: 2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      &:hover {
+        background-color: $light-blue;
+      }
+    }
+
+  }
+    .search-container {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 3rem;
+
+      .search-input {
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: 30px;
+        width: 100%;
+        background-color: $medium-blue;
+        color: $white;
+        outline: none;
+        
+
+        &::placeholder {
+          color: $very-light-blue;
+        }
+
+        &:focus {
+          border-color: $light-blue;
+        }
+      }
+
+      .search-btn {
+        position: absolute;
+        
+        padding: 0.75rem 1rem;
+        background-color: $button-blue;
+        color: $white;
+        border: none;
+        border-radius: 0 20px 20px 0;
+
+        cursor: pointer;
+
+        &:hover {
+          background-color: $light-blue;
+        }
+      }
+    }
+    .add-course-form{
+      display: flex;
+      flex-direction: row;
+      //justify-content: space-between;
+      //align-items: center;
+      
+      .form-field{
+        margin-top: 1rem;
+        margin-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+
+        label{
+          margin-bottom: 0.5rem;
+        }
+
+        input{
+          padding: 0.75rem 1rem;
+          border: none;
+          border-radius: 30px;
+          width: 100%;
+          background-color: $medium-blue;
+          color: $white;
+          outline: none;
+          &::placeholder {
+            color: $very-light-blue;
+          }
+          &:focus {
+            border-color: $light-blue;
+          }
+        }
+        
+      }
+    }  
+}
